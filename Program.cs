@@ -20,13 +20,13 @@ namespace Projeto
             //double n1, n2, resultado;
             
             Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("1. Adição [+]");
-            Console.WriteLine("2. Subtração [-]");
-            Console.WriteLine("3. Multiplicação [X]");
-            Console.WriteLine("4. Divisão [÷]");
-            Console.WriteLine("5. Exponenciação [x²]");
-            Console.WriteLine("6. Radiciação [√]");
-            Console.WriteLine("7. Bonus [?]");
+            Console.WriteLine("[+] . Adição");
+            Console.WriteLine("[-] . Subtração");
+            Console.WriteLine("[X] . Multiplicação");
+            Console.WriteLine("[÷] . Divisão");
+            Console.WriteLine("[x²]. Exponenciação");
+            Console.WriteLine("[√] . Radiciação");
+            Console.WriteLine("[?] . Bonus");
             Console.WriteLine("----------------------");
                        
             Console.WriteLine("0. Sair");
@@ -53,18 +53,61 @@ namespace Projeto
         }
         static void Operando()
         {
-            double n1, n2, resultado;
-            int op = Convert.ToInt32(Console.ReadLine());
-            if(op == 1)
+            double n1, n2, resultado = 0;
+            string op = Console.ReadLine();
+            Console.Write ("Digite um valor: ");
+            //n1 = Convert.ToDouble(Console.ReadLine());
+             bool numero1 = double.TryParse(Console.ReadLine(), out n1);
+             if (!numero1 || n1 < 0 )
             {
-                Console.Write ("Digite um valor: ");
-                n1 = Convert.ToDouble(Console.ReadLine());
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error!!! Caracter Invalido");
+                Console.ResetColor();
+                Environment.Exit(-1);
+            }
 
-                 Console.Write ("Digite um valor: ");
-                n2 = Convert.ToDouble(Console.ReadLine());
-
+            Console.Write ("Digite um valor: ");
+            //n2 = Convert.ToDouble(Console.ReadLine());
+           
+            bool numero2 = double.TryParse(Console.ReadLine(), out n2);
+            if (!numero2 || n2 < 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error!!! Caracter Invalido");
+                Console.ResetColor();
+                Environment.Exit(-1);
+            }
+                          
+            else
+            {
+               
+                
+            switch(op)
+            {
+                case "+":
                 resultado = n1 + n2;
-                Console.WriteLine($"A soma de {n1} + {n2} = {resultado}");
+                break;
+
+                case "-":
+                resultado = n1 - n2;
+                break;
+
+                case "*":
+                resultado = n1 * n2;
+                break;
+
+                case "/":
+                resultado = n1 / n2;
+                break;
+
+                default:
+                Console.WriteLine("opção invalida!!");
+                break;
+                
+            }
+            
+            Console.WriteLine("{0} {1} {2} = {3}", n1, op, n2, resultado);
+
             }
         }
     }
