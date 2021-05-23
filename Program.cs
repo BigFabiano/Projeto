@@ -5,23 +5,39 @@ namespace Projeto
     class Program
     {
         static void Main(string[] args)
-        {
+        {                   
             NomePrograma();
 
             MinhaEscolha();
 
-           
+            Operando();
+
+                      
         }
         
         static void MinhaEscolha()
-        {
-            Console.WriteLine("1 - SOMAR [ + ]");
-            Console.WriteLine("2 - SUBTRAIR [ - ]");
-            Console.WriteLine("3 - MULTIPLICAR [ X ]");
-            Console.WriteLine("4 - DIVIDIR [ ÷ ]");
-            Console.WriteLine("5 - Exponenciação [ x² ]");
-            Console.WriteLine("6 - radiciação [ √ ]");
-            Console.WriteLine("7 - Bonus [ ÷ ]");
+        { 
+            //double n1, n2, resultado;
+            
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("1. Adição [+]");
+            Console.WriteLine("2. Subtração [-]");
+            Console.WriteLine("3. Multiplicação [X]");
+            Console.WriteLine("4. Divisão [÷]");
+            Console.WriteLine("5. Exponenciação [x²]");
+            Console.WriteLine("6. Radiciação [√]");
+            Console.WriteLine("7. Bonus [?]");
+            Console.WriteLine("----------------------");
+                       
+            Console.WriteLine("0. Sair");
+            Console.WriteLine("----------------------");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Escolha uma das opções : ");
+            //int op = Convert.ToInt32(Console.ReadLine());
+            Console.ResetColor();
+                 
+           
         }
         static void NomePrograma()
         {
@@ -35,17 +51,20 @@ namespace Projeto
             Console.WriteLine("Escolha uma das opções :");
             Console.ResetColor();
         }
-        static int EscolhaOpcao(int p)
-        
+        static void Operando()
         {
-            int n1, n2, soma;
-            switch (p)
+            double n1, n2, resultado;
+            int op = Convert.ToInt32(Console.ReadLine());
+            if(op == 1)
             {
-                case 1:
-                Console.Write("Somar");
-                Console.Write($"Nº  + ");
-                int n1 = Convert.ToInt32(Console.ReadLine());
-                break;
+                Console.Write ("Digite um valor: ");
+                n1 = Convert.ToDouble(Console.ReadLine());
+
+                 Console.Write ("Digite um valor: ");
+                n2 = Convert.ToDouble(Console.ReadLine());
+
+                resultado = n1 + n2;
+                Console.WriteLine($"A soma de {n1} + {n2} = {resultado}");
             }
         }
     }
