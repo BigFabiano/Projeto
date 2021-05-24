@@ -126,7 +126,8 @@ namespace Projeto
             Console.WriteLine();
 
             }
-            }while(op != "S" || op == "N");
+            }while(op != "0");
+            Console.WriteLine("Fim");
         }
     }
 }
