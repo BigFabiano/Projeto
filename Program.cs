@@ -7,11 +7,13 @@ namespace Projeto
         static void Main(string[] args)
         {
 
+            Console.Clear();
+            Console.Beep();
             string opcaoUsuario = "";
             do
             {
                 Console.Clear();
-                Console.Beep();
+
                 Console.Title = "Calculadora - Versão 1.0";
                 string banner = FiggleFonts.Ogre.Render("Calculadora");
                 Console.ForegroundColor = ConsoleColor.Green;
